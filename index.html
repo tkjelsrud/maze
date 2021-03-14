@@ -18,13 +18,13 @@
     }
   </style>
   <script type="text/javascript">
-    var glob = {'tw': 32, 'th': 32, 'data': []};
+    var glob = {'tw': 34, 'th': 34, 'data': []};
     
     function drawMaze() {
       let d = document.getElementById("maze");
       
-      cx = Math.floor((window.innerWidth - 50) / glob.tw);
-      cy = Math.floor((window.innerHeight - 50) / glob.th);
+      cx = Math.floor((window.innerWidth - 100) / glob.tw);
+      cy = Math.floor((window.innerHeight - 100) / glob.th);
       //alert(cx + " " + cy);
       
       for(let y = 0; y < cy; y++) {
