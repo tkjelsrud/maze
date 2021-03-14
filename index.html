@@ -61,7 +61,10 @@
     }
     
     function setData(ident, val) {
-      let x, y = ident.split("_");
+      let i = ident.split("_");
+      let x = parseInt(i[0]);
+      let y = parseInt(i[1]);
+      
       console.log(x + "x, " + y + "y");
       glob.data[y][x] = val;
     }
