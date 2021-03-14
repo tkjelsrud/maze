@@ -36,7 +36,11 @@
             event.target.style.backgroundColor = "#999";
           });
           t.addEventListener('click', function (event) {
-            event.target.style.backgroundColor = "red";
+            if(event.target.style.backgroundColor == "red") {
+              event.target.style.backgroundColor = "white";
+            }
+            else
+              event.target.style.backgroundColor = "red";
           });
           
           r.appendChild(t);
