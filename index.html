@@ -62,7 +62,7 @@
     
     function setData(ident, val) {
       let x, y = ident.split("_");
-      //alert(x + " " + y + " = " + val);
+      glob.data[y][x] = val;
     }
     
     function moveDude() {
