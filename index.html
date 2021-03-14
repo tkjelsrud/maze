@@ -24,10 +24,8 @@
     function drawMaze() {
       let d = document.getElementById("maze");
       
-      cx = Math.floor((window.innerWidth - 140) / glob.tw);
-      cy = Math.floor((window.innerHeight - 100) / glob.th);
-      glob.maxx = cx;
-      glob.maxy = cy;
+      let cx = glob.maxx;
+      let cy = glob.maxy;
       //alert(cx + " " + cy);
       
       for(let y = 0; y < cy; y++) {
@@ -91,14 +89,24 @@
     }
       
     function isFreeTile(x, y) {
-      return (glob.data[x][y] == "0");
+      return (glob.data[y][x] == "0");
     }
     
     function inBounds(x, y) {
       return (x >= 0 && x < glob.maxx && y >= 0 && y < glob.maxy); 
     }
     
-    functin loadData() {
+    function nullData() {
+      glob.data = new Array();
+      for(let y = 0; y < glob.maxy; y++) {
+        glob.data.push(new Array());
+        for(let x = 0; x < glob.maxx; x++) {
+          glob.data[y].push("0");
+        }
+      }
+    }
+    
+    function loadData() {
       let d = localStorage.getItem('data');
       if(d) {
         glob.data = JSON.parse(d);
@@ -118,6 +126,10 @@
   </div>
   <script type="text/javascript">
     window.onload = (event) => {
+      glob.maxx = Math.floor((window.innerWidth - 140) / glob.tw);
+      glob.maxy = Math.floor((window.innerHeight - 100) / glob.th);
+      
+      nullData();
       loadData();
       drawMaze();
       
