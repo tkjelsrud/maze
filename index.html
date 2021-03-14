@@ -6,6 +6,9 @@
       height: 100%;
       margin: 0;
     }
+    .row {
+      float: none;
+    }
     .tile {
       float: left;
       height: 18px;
@@ -24,6 +27,8 @@
       
       for(let y = 0; y < cy; y++) {
         let r = document.createElement("div");
+        r.className = "row";
+        
        	for(let x = 0; x < cx; x++) {
           let t = document.createElement("div");
           t.className = "tile";
