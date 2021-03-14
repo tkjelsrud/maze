@@ -23,11 +23,13 @@
       alert(cx + " " + cy);
       
       for(let y = 0; y < cy; y++) {
+        let r = document.createElement("div");
        	for(let x = 0; x < cx; x++) {
           let t = document.createElement("div");
           t.className = "tile";
-          d.appendChild(t);
+          r.appendChild(t);
         }
+        d.appendChild(r);
       }
     }
   </script>
