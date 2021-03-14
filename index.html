@@ -18,7 +18,7 @@
     }
   </style>
   <script type="text/javascript">
-    var glob = {'tw': 34, 'th': 34, 'data': []};
+    var glob = {'tw': 34, 'th': 34, 'data': [], 'dude': [0, 0]};
     
     function drawMaze() {
       let d = document.getElementById("maze");
@@ -62,6 +62,12 @@
       let x, y = ident.split("_");
       //alert(x + " " + y + " = " + val);
     }
+    
+    function moveDude() {
+      let x = glob.dude[0];
+      let y = glob.dude[0];
+    }
+    
   </script>
 </head>
 
