@@ -11,13 +11,13 @@
     }
     .tile {
       float: left;
-      height: 18px;
-      width: 18px;
+      height: 32px;
+      width: 32px;
       border: 1px solid grey;
     }
   </style>
   <script type="text/javascript">
-    var glob = {'tw': 18, 'th': 18};
+    var glob = {'tw': 32, 'th': 32};
     function drawMaze() {
       let d = document.getElementById("maze");
       
@@ -32,6 +32,10 @@
        	for(let x = 0; x < cx; x++) {
           let t = document.createElement("div");
           t.className = "tile";
+          t.addEventListener('ontouchstart', function (event) {
+            event.target.style.backgroundColor = "red";
+          });
+          
           r.appendChild(t);
         }
         d.appendChild(r);
