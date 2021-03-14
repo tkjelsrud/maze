@@ -31,14 +31,15 @@
       for(let y = 0; y < cy; y++) {
         let r = document.createElement("div");
         r.className = "row";
-        //glob.data.push(new Array());
         
        	for(let x = 0; x < cx; x++) {
-          //glob.data[y].push("0");
-          
           let t = document.createElement("div");
           t.id = x + "_" + y;
           t.className = "tile";
+          
+          if(glob.data[y][x] == "0") t.style.backgroundColor = "white";
+          else t.style.backgroundColor = "red";
+          
           /*t.addEventListener('touchstart', function (event) {
             event.target.style.backgroundColor = "#999";
           });*/
