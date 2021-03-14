@@ -98,6 +98,17 @@
       return (x >= 0 && x < glob.maxx && y >= 0 && y < glob.maxy); 
     }
     
+    functin loadData() {
+      let d = localStorage.getItem('data');
+      if(d) {
+        glob.data = JSON.parse(d);
+      }
+    }
+    
+    function saveData() {
+      localStorage.setItem('data', glob);
+    }
+    
   </script>
 </head>
 
@@ -107,6 +118,7 @@
   </div>
   <script type="text/javascript">
     window.onload = (event) => {
+      loadData();
       drawMaze();
       
       setTimeout(moveDude, 1000)
