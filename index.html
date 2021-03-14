@@ -17,7 +17,8 @@
     }
   </style>
   <script type="text/javascript">
-    var glob = {'tw': 32, 'th': 32};
+    var glob = {'tw': 32, 'th': 32, 'data': []};
+    
     function drawMaze() {
       let d = document.getElementById("maze");
       
@@ -28,8 +29,11 @@
       for(let y = 0; y < cy; y++) {
         let r = document.createElement("div");
         r.className = "row";
+        glob.data.push(new Array());
         
        	for(let x = 0; x < cx; x++) {
+          glob.data[y].push("0");
+          
           let t = document.createElement("div");
           t.className = "tile";
           /*t.addEventListener('touchstart', function (event) {
