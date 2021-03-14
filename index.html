@@ -32,7 +32,7 @@
        	for(let x = 0; x < cx; x++) {
           let t = document.createElement("div");
           t.className = "tile";
-          t.addEventListener('ontouchstart', function (event) {
+          t.addEventListener('touchstart', function (event) {
             alert("test");
             event.target.style.backgroundColor = "red";
           });
