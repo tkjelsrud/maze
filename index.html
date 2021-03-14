@@ -16,15 +16,18 @@
       width: 32px;
       border: 1px solid grey;
     }
+    
   </style>
   <script type="text/javascript">
-    var glob = {'tw': 34, 'th': 34, 'data': [], 'dude': [0, 0]};
+    var glob = {'tw': 34, 'th': 34, 'maxx': 0, 'maxy': 0, 'data': [], 'dude': [0, 0, 'r']};
     
     function drawMaze() {
       let d = document.getElementById("maze");
       
       cx = Math.floor((window.innerWidth - 100) / glob.tw);
       cy = Math.floor((window.innerHeight - 100) / glob.th);
+      glob.maxx = cx;
+      glob.maxy = cy;
       //alert(cx + " " + cy);
       
       for(let y = 0; y < cy; y++) {
@@ -65,7 +68,34 @@
     
     function moveDude() {
       let x = glob.dude[0];
-      let y = glob.dude[0];
+      let y = glob.dude[1];
+      let d = glob.dude[2];
+      
+      document.getElementById(x + "_" + y).style.backgroundColor = "white";
+      
+      if(d == "r") x++;
+      if(d == "u") y--;
+      if(d == "d") y++;
+      if(d == "l") x--;
+      
+      if(inBounds(x, y) && isFreeTile(x, y)) {
+        glob.dude[0] = x;
+        glob.dude[1] = y;
+		document.getElementById(x + "_" + y).style.backgroundColor = "green";
+      }
+      else {
+        glob.dude[2] = ["r", "l", "d", "u"][Math.floor(Math.random() * 4)]; 
+      }
+      
+      setTimeout(moveDude, 1000)
+    }
+      
+    function isFreeTile(x, y) {
+      return (glob.data[y][x] == "0");
+    }
+    
+    function inBounds(x, y) {
+      return (x >= 0 && x < glob.maxx && y >= 0 && y < glob.maxy); 
     }
     
   </script>
@@ -77,7 +107,9 @@
   </div>
   <script type="text/javascript">
     window.onload = (event) => {
-    	drawMaze();
+      drawMaze();
+      
+      setTimeout(moveDude, 1000)
     };
   </script>
 </body>
