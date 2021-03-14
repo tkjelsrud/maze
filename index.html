@@ -43,15 +43,22 @@
           t.addEventListener('click', function (event) {
             if(event.target.style.backgroundColor == "red") {
               event.target.style.backgroundColor = "white";
+              setData(event.target.id, "0");
             }
             else
               event.target.style.backgroundColor = "red";
+            setData(event.target.id, "1");
           });
           
           r.appendChild(t);
         }
         d.appendChild(r);
       }
+    }
+    
+    function setData(ident, val) {
+      let x, y = ident.split("_");
+      alert(x + " " + y + " = " + val);
     }
   </script>
 </head>
